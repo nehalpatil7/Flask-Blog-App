@@ -5,7 +5,7 @@ import { NearBindgen, near, call, view, initialize, UnorderedMap,Vector } from '
 @NearBindgen({})
 class InsuranceClaim {
   claims: UnorderedMap<Vector<String>> = new UnorderedMap<Vector<String>>('unique-id-map1');
-  
+
   @view({}) // This method is read-only and can be called for free
   get_greeting(): Vector<String> {
     if (this.claims.get("insurer_id") != null) {

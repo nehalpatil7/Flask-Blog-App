@@ -1,11 +1,15 @@
+import json
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 import ast
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
 app = Flask(__name__)
+CORS(app)
 app.config["kmeans"] = None
+
 
 def kmeans_model(num_clusters = None):
     industry_mapping = {
